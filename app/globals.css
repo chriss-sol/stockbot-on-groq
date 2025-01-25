@@ -5,45 +5,24 @@
 @import 'tailwindcss/utilities';
 /* purgecss end ignore */
 
-/* Custom properties */
-:root {
-  --background: 220 13% 12%; /* Darker background */
-  --foreground: 0 0% 100%;
-  
-  --card: 222 14% 22%;
-  --card-foreground: 0 0% 100%;
-
-  --popover: 222 14% 22%;
-  --popover-foreground: 0 0% 100%;
-
-  --primary: 271 82% 46%;
-  --primary-foreground: 0 0% 100%;
-
-  --secondary: 223 14% 25%;
-  --secondary-foreground: 0 0% 100%;
-
-  --muted: 223 14% 25%;
-  --muted-foreground: 220 14% 75%;
-
-  --accent: 271 82% 46%;
-  --accent-foreground: 0 0% 100%;
-
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 98%;
-
-  --border: 220 13% 28%;
-  --input: 220 13% 20%;
-  --ring: 271 82% 46%;
-
-  --radius: 0.5rem;
-}
-
 /* Base styles */
-* {
-  border-color: hsl(var(--border));
+body {
+  background-color: #0F172A; /* Dark background */
+  color: #FFFFFF; /* White text */
 }
 
-body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+.header {
+  background-color: #0F172A; /* Dark background */
+}
+
+.button {
+  background-color: #4F46E5; /* Primary color */
+  color: #FFFFFF;
+  border-radius: 0.5rem;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #818CF8; /* Lighter primary color */
 }
