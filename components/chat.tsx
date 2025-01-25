@@ -60,10 +60,7 @@ export function Chat({ id, className, session, missingKeys }: ChatProps) {
     useScrollAnchor()
 
   return (
-    <div
-      className="group w-full overflow-auto pl-0 peer-[[data-state=open]]:lg:pl-[250px] peer-[[data-state=open]]:xl:pl-[300px]"
-      ref={scrollRef}
-    >
+    <div className="flex flex-col h-[calc(100vh-theme(spacing.16))] w-full overflow-hidden pl-0 peer-[[data-state=open]]:lg:pl-[250px] peer-[[data-state=open]]:xl:pl-[300px]">
       {messages.length ? (
         <MissingApiKeyBanner missingKeys={missingKeys} />
       ) : (
@@ -72,7 +69,8 @@ export function Chat({ id, className, session, missingKeys }: ChatProps) {
 
       <div
         className={cn(
-          messages.length ? 'pb-[200px] pt-4 md:pt-6' : 'pb-[200px] pt-0',
+          'flex-1 overflow-y-auto',
+          messages.length ? 'pt-4 md:pt-6' : 'pt-0',
           className
         )}
         ref={messagesRef}
@@ -84,13 +82,16 @@ export function Chat({ id, className, session, missingKeys }: ChatProps) {
         )}
         <div className="w-full h-px" ref={visibilityRef} />
       </div>
-      <ChatPanel
-        id={id}
-        input={input}
-        setInput={setInput}
-        isAtBottom={isAtBottom}
-        scrollToBottom={scrollToBottom}
-      />
+
+      <div className="relative">
+        <ChatPanel
+          id={id}
+          input={input}
+          setInput={setInput}
+          isAtBottom={isAtBottom}
+          scrollToBottom={scrollToBottom}
+        />
+      </div>
     </div>
   )
 }

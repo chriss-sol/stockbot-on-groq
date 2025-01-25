@@ -1,16 +1,20 @@
 'use client'
 
-import { IconGroq, IconUser } from '@/components/ui/icons'
+import { IconUser } from '@/components/ui/icons'
 import { cn } from '@/lib/utils'
 import { spinner } from './spinner'
 import { CodeBlock } from '../ui/codeblock'
 import { MemoizedReactMarkdown } from '../markdown'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
-import { StreamableValue, useStreamableValue } from 'ai/rsc'
+import { StreamableValue } from 'ai/rsc'
 import { useStreamableText } from '@/lib/hooks/use-streamable-text'
 
-// Different types of message bubbles.
+function FinnotechF() {
+  return (
+    <span className="text-sm font-bold text-white">F</span>
+  )
+}
 
 export function UserMessage({ children }: { children: React.ReactNode }) {
   return (
@@ -18,7 +22,7 @@ export function UserMessage({ children }: { children: React.ReactNode }) {
       <div className="flex size-[25px] shrink-0 select-none items-center justify-center rounded-md border bg-background shadow-sm">
         <IconUser />
       </div>
-      <div className="ml-4 flex-1 space-y-2 overflow-hidden pl-2">
+      <div className="ml-4 flex-1 space-y-2 overflow-hidden pl-2 text-white">
         {children}
       </div>
     </div>
@@ -36,16 +40,16 @@ export function BotMessage({
 
   return (
     <div className={cn('group relative flex items-start md:-ml-12', className)}>
-      <div className="flex size-[24px] shrink-0 select-none items-center justify-center rounded-md border bg-[#f55036] text-primary-foreground shadow-sm">
-        <IconGroq />
+      <div className="flex size-[24px] shrink-0 select-none items-center justify-center rounded-md border bg-[#7616D4] text-primary-foreground shadow-sm">
+        <FinnotechF />
       </div>
-      <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
+      <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1 text-white">
         <MemoizedReactMarkdown
-          className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
+          className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0 text-white prose-headings:text-white prose-strong:text-white"
           remarkPlugins={[remarkGfm, remarkMath]}
           components={{
             p({ children }) {
-              return <p className="mb-2 last:mb-0">{children}</p>
+              return <p className="mb-2 last:mb-0 text-white">{children}</p>
             },
             code({ node, inline, className, children, ...props }) {
               if (children.length) {
@@ -62,7 +66,7 @@ export function BotMessage({
 
               if (inline) {
                 return (
-                  <code className={className} {...props}>
+                  <code className={className + " text-white"} {...props}>
                     {children}
                   </code>
                 )
@@ -97,13 +101,13 @@ export function BotCard({
     <div className="group relative flex items-start md:-ml-12">
       <div
         className={cn(
-          'flex size-[24px] shrink-0 select-none items-center justify-center rounded-md border bg-[#f55036] text-primary-foreground shadow-sm',
+          'flex size-[24px] shrink-0 select-none items-center justify-center rounded-md border bg-[#7616D4] text-primary-foreground shadow-sm',
           !showAvatar && 'invisible'
         )}
       >
-        <IconGroq />
+        <FinnotechF />
       </div>
-      <div className="ml-4 flex-1 pl-2">{children}</div>
+      <div className="ml-4 flex-1 pl-2 text-white">{children}</div>
     </div>
   )
 }
@@ -112,7 +116,7 @@ export function SystemMessage({ children }: { children: React.ReactNode }) {
   return (
     <div
       className={
-        'mt-2 flex items-center justify-center gap-2 text-xs text-gray-500'
+        'mt-2 flex items-center justify-center gap-2 text-xs text-white'
       }
     >
       <div className={'max-w-[600px] flex-initial p-2'}>{children}</div>
@@ -123,8 +127,8 @@ export function SystemMessage({ children }: { children: React.ReactNode }) {
 export function SpinnerMessage() {
   return (
     <div className="group relative flex items-start md:-ml-12">
-      <div className="flex size-[24px] shrink-0 select-none items-center justify-center rounded-md border bg-[#f55036] text-primary-foreground shadow-sm">
-        <IconGroq />
+      <div className="flex size-[24px] shrink-0 select-none items-center justify-center rounded-md border bg-[#7616D4] text-primary-foreground shadow-sm">
+        <FinnotechF />
       </div>
       <div className="ml-4 h-[24px] flex flex-row items-center flex-1 space-y-2 overflow-hidden px-1">
         {spinner}

@@ -4,26 +4,16 @@ import Image from 'next/image'
 
 import { cn } from '@/lib/utils'
 import { Button, buttonVariants } from '@/components/ui/button'
-import {
-  IconGitHub,
-  IconGroq,
-  IconSeparator,
-  IconVercel
-} from '@/components/ui/icons'
+import { IconSeparator } from '@/components/ui/icons'  // Removed IconGitHub import
 import { Session } from '@/lib/types'
 
 async function UserOrLogin() {
   return (
     <>
-      <Link href="https://wow.groq.com/groq-labs/" rel="nofollow">
-        {/* <IconGroq className="size-6 mr-2 dark:hidden" />
-          <IconGroq className="hidden size-6 mr-2 dark:block" /> */}
-        <Image
-          src="/groqlabs-logo-black.png"
-          alt="GroqLabs Logo"
-          width={100}
-          height={30}
-        />
+      <Link href="https://finnotech.io" rel="nofollow">
+        <div className="text-xl font-bold text-finnotech-purple">
+          Finnotech
+        </div>
       </Link>
 
       <div className="flex items-center font-semibold">
@@ -34,7 +24,7 @@ async function UserOrLogin() {
           href="/new"
           rel="noopener noreferrer"
           className={cn(buttonVariants({ variant: 'ghost' }))}
-          style={{ borderRadius: 0, color: '#F55036', padding: '4px' }}
+          style={{ borderRadius: 0, color: '#7616D4', padding: '4px' }}
         >
           <span className="flex">Start New Chat</span>
         </a>
@@ -51,18 +41,7 @@ export function Header() {
           <UserOrLogin />
         </React.Suspense>
       </div>
-      <div className="flex items-center justify-end space-x-2">
-        <a
-          target="_blank"
-          href="https://github.com/bklieger-groq/groq-gen-ui/"
-          rel="noopener noreferrer"
-          className={cn(buttonVariants({ variant: 'outline' }))}
-          style={{ borderRadius: 0 }}
-        >
-          <IconGitHub />
-          <span className="hidden ml-2 md:flex">GitHub</span>
-        </a>
-      </div>
+      {/* Removed GitHub button section */}
     </header>
   )
 }

@@ -14,7 +14,9 @@ export function TickerTape() {
     script.src =
       'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js'
     script.async = true
-    script.innerHTML = JSON.stringify({
+    script.type = 'text/javascript'
+    
+    const widgetConfig = {
       symbols: [
         {
           proName: 'FOREXCOM:SPXUSD',
@@ -42,12 +44,13 @@ export function TickerTape() {
         }
       ],
       showSymbolLogo: true,
-      isTransparent: true,
+      isTransparent: false,
       displayMode: 'adaptive',
-      colorTheme: 'light',
+      colorTheme: 'dark',
       locale: 'en'
-    })
+    }
 
+    script.innerHTML = JSON.stringify(widgetConfig)
     container.current.appendChild(script)
 
     return () => {
@@ -61,20 +64,22 @@ export function TickerTape() {
   }, [])
 
   return (
-    <div
-      className="tradingview-widget-container mb-2 md:min-h-20 min-h-28"
-      ref={container}
-    >
-      <div className="tradingview-widget-container__widget"></div>
-      <div className="tradingview-widget-copyright flex justify-end mr-2">
-        <a
-          href="https://www.tradingview.com/"
-          rel="noopener nofollow"
-          target="_blank"
-          className="justify-end text-right"
-        >
-          <span className="">Track all markets on TradingView</span>
-        </a>
+    <div className="bg-zinc-900/80 backdrop-blur-sm border-b border-zinc-800">
+      <div
+        className="tradingview-widget-container mb-2 md:min-h-20 min-h-28"
+        ref={container}
+      >
+        <div className="tradingview-widget-container__widget"></div>
+        <div className="tradingview-widget-copyright flex justify-end mr-2">
+          <a
+            href="https://www.tradingview.com/"
+            rel="noopener nofollow"
+            target="_blank"
+            className="justify-end text-right text-zinc-400 hover:text-zinc-300 text-sm"
+          >
+            <span>Track all markets on TradingView</span>
+          </a>
+        </div>
       </div>
     </div>
   )

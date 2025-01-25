@@ -13,11 +13,11 @@ export const metadata = {
     ? new URL(`https://${process.env.VERCEL_URL}`)
     : undefined,
   title: {
-    default: 'StockBot powered by Groq',
-    template: `%s - StockBot powered by Groq`
+    default: 'Finnotech StockBot',
+    template: `%s - 'Finnotech StockBot'`
   },
   description:
-    'Lightning Fast AI Chatbot that Responds With Live Interactive Stock Charts, Financials, News, Screeners, and More.',
+    'Finnotech StockBot - Your Advanced AI Trading Assistant with Live Interactive Stock Charts, Financials, and Market Analysis.',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
