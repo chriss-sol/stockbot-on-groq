@@ -4,7 +4,7 @@ import Link from 'next/link';
 export function Header() {
   return (
     <header className="bg-background text-white p-4 flex justify-between items-center">
-      <Link href="https://finnotech.io" rel="nofollow">
+      <Link href="https://finnoai.xyz" rel="nofollow">
         <div className="text-xl font-bold text-primary">
           Finnotech
         </div>
